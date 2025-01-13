@@ -1,44 +1,29 @@
+import { IconProps } from "@/types/icons";
 import * as React from "react";
 
-interface Props extends React.SVGProps<SVGSVGElement> {
-  size?: number;
-  color?: string;
-}
-
-export default function BorrowIcon({
-  size = 20,
-  color = "rgba(67, 76, 83, 0.9)",
-  className,
-  ...props
-}: Props) {
-  return (
-    <svg
-      width={size + 1}
-      height={size}
-      viewBox="0 0 21 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      {...props}
-    >
-      <g clipPath="url(#clip0_5021_110)">
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M6.18018 10.228C6.49609 9.91911 7.00259 9.9248 7.31148 10.2407C7.62037 10.5566 7.61468 11.0631 7.29877 11.372L5.42923 13.2L17.8667 13.2C18.3086 13.2 18.6667 13.5582 18.6667 14C18.6667 14.4418 18.3086 14.8 17.8667 14.8L5.42923 14.8L7.29877 16.628C7.61468 16.9369 7.62037 17.4434 7.31148 17.7593C7.00259 18.0752 6.49609 18.0809 6.18018 17.772L2.90745 14.572C2.75352 14.4215 2.66675 14.2153 2.66675 14C2.66675 13.7847 2.75352 13.5785 2.90745 13.428L6.18018 10.228ZM15.1533 2.22799C14.8374 1.91911 14.3309 1.9248 14.022 2.24071C13.7131 2.55662 13.7188 3.06312 14.0347 3.37201L15.9043 5.2L3.46675 5.2C3.02492 5.2 2.66675 5.55817 2.66675 6C2.66675 6.44183 3.02492 6.8 3.46675 6.8L15.9043 6.8L14.0347 8.62799C13.7188 8.93688 13.7131 9.44338 14.022 9.75929C14.3309 10.0752 14.8374 10.0809 15.1533 9.77201L18.426 6.57201C18.58 6.42149 18.6667 6.21529 18.6667 6C18.6667 5.78471 18.58 5.57851 18.426 5.42799L15.1533 2.22799Z"
-          fill={color}
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_5021_110">
-          <rect
-            width="20"
-            height="20"
-            fill="white"
-            transform="translate(0.666748)"
-          />
-        </clipPath>
-      </defs>
-    </svg>
-  );
-}
+const BorrowIcon = ({ size = 20, className, ...props }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 20 20"
+    fill="none"
+    className={className ?? "text-icon-primary"}
+    {...props}
+  >
+    <g clipPath="url(#a)">
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M6.18 10.228A.8.8 0 0 1 7.3 11.372L5.429 13.2h12.438a.8.8 0 1 1 0 1.6H5.429l1.87 1.828a.8.8 0 1 1-1.119 1.144l-3.273-3.2a.8.8 0 0 1 0-1.144l3.273-3.2Zm8.973-8a.8.8 0 0 0-1.118 1.144l1.87 1.828H3.466a.8.8 0 1 0 0 1.6h12.437l-1.87 1.828a.8.8 0 0 0 1.12 1.144l3.272-3.2a.8.8 0 0 0 0-1.144l-3.273-3.2Z"
+        clipRule="evenodd"
+      />
+    </g>
+    <defs>
+      <clipPath id="a">
+        <path fill="currentColor" d="M.667 0h20v20h-20z" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+export default BorrowIcon;

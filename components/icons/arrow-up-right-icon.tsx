@@ -1,33 +1,22 @@
+import { IconProps } from "@/types/icons";
 import * as React from "react";
 
-interface Props extends React.SVGProps<SVGSVGElement> {
-  size?: number;
-  color?: string;
-}
-
-export default function ArrowUpRightIcon({
-  size = 20,
-  color = "rgba(25, 29, 32, 0.6)",
-  className,
-  ...props
-}: Props) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-label="Arrow icon"
-      {...props}
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M6.17574 13.8243C6.41005 14.0586 6.78995 14.0586 7.02426 13.8243L12.8 8.04853V12.6C12.8 12.9314 13.0686 13.2 13.4 13.2C13.7314 13.2 14 12.9314 14 12.6V6.6C14 6.26863 13.7314 6 13.4 6H7.4C7.06863 6 6.8 6.26863 6.8 6.6C6.8 6.93137 7.06863 7.2 7.4 7.2H11.9515L6.17574 12.9757C5.94142 13.2101 5.94142 13.5899 6.17574 13.8243Z"
-        fill={color}
-      />
-    </svg>
-  );
-}
+const ArrowUpRightIcon = ({ size = 20, className, ...props }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 20 20"
+    fill="none"
+    className={className ?? "text-icon-primary"}
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M6.176 13.824a.6.6 0 0 0 .848 0L12.8 8.05V12.6a.6.6 0 1 0 1.2 0v-6a.6.6 0 0 0-.6-.6h-6a.6.6 0 0 0 0 1.2h4.551l-5.775 5.776a.6.6 0 0 0 0 .848Z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+export default ArrowUpRightIcon;
