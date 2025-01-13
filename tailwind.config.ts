@@ -68,6 +68,9 @@ const config: Config = {
         },
         icon: {
           primary: "rgba(var(--icon-primary), 0.9)",
+          button: {
+            primary: "rgba(var(--icon-button-primary), 0.9)",
+          },
           secondary: "rgba(var(--icon-secondary), 0.6)",
         },
         "text-button": {
