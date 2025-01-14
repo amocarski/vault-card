@@ -75,6 +75,7 @@ const config: Config = {
         },
         "text-button": {
           primary: "hsl(var(--text-button-primary))",
+          secondary: "rgba(var(--text-button-secondary), 0.95)",
           disabled: "rgba(var(--text-button-disabled), 0.5)",
         },
         bg: {
@@ -95,6 +96,7 @@ const config: Config = {
           dark: "hsl(var(--constant-dark))",
           gray: "hsl(var(--constant-gray))",
           valid: "hsl(var(--constant-color-valid))",
+          warning: "rgba(var(--constant-color-warning), 0.5)",
         },
       },
       borderRadius: {
