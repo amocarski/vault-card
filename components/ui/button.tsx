@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           "bg-bg-button text-text-button-primary gap-[10px] text-[15px] hover:bg-bg-button-hover disabled:bg-bg-button-disabled disabled:text-text-button-disabled",
         secondary:
-          "bg-bg-primary text-text-body hover:bg-bg-interactive-hover gap-[2px] text-[11px] rounded-[3px]",
+          "bg-bg-primary text-text-button-secondary hover:bg-bg-interactive-hover gap-[2px] text-[11px] rounded-[3px]",
       },
       size: {
         default: "h-8 px-[10px] py-[6.5px]",

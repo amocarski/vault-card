@@ -3,18 +3,19 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 export interface InputProps extends React.ComponentProps<"input"> {
-  error?: string;
+  error?: any;
+  success?: boolean;
   label?: string;
   endIcon?: React.ReactNode;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, error, endIcon, label, ...props }, ref) => {
+  ({ className, type, error, endIcon, label, success, ...props }, ref) => {
     return (
-      <div className="flex flex-col gap-2">
+      <div className={cn("flex flex-col gap-2", className)} ref={ref}>
         {label && (
           <label
-            className="text-text-secondary text-xs font-medium"
+            className="text-xs font-medium text-text-secondary"
             htmlFor={props.id}
           >
             {label}
@@ -27,11 +28,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               "flex h-9 w-full font-normal rounded-md bg-bg-interactive hover:bg-bg-interactive-hover focus:bg-bg-interactive-pressed pr-3 pl-[10px] py-2 text-[13px] ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-text-interactive-disabled focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-active focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 text-text-body",
               endIcon && "pr-[34px]",
               error && [
-                "border border-solid border-border-interactive-error text-text-interactive-error",
+                "border border-solid !border-border-interactive-error text-text-interactive-error",
               ],
-              className
+              success && "border border-solid border-constant-valid"
             )}
-            ref={ref}
             {...props}
           />
           {endIcon && (
@@ -41,7 +41,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error && (
-          <p className="text-text-interactive-error text-xs text-right font-medium">
+          <p className="text-right text-xs font-medium text-text-interactive-error">
             {error}
           </p>
         )}
