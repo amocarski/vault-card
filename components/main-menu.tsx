@@ -8,7 +8,7 @@ const MainMenu = () => {
     <div className="flex w-full justify-between border-b-[0.5px] bg-background px-10 py-3">
       <div className="flex items-center gap-8">
         <MorphoLogo />
-        <p>Morpho Test</p>
+        <p className="text-[13px]">Morpho Test</p>
       </div>
       <Button variant="secondary" size="small" asChild>
         <Link href={process.env.GITHUB_REPO_URL!} target="_blank">
