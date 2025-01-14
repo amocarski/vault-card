@@ -56,7 +56,7 @@ const VaultsSearch = () => {
         setInputValue("");
       }}
     />
-  ) : data?.vaults?.items ? (
+  ) : data ? (
     <CheckBorderIcon className="text-constant-valid" />
   ) : null;
 
@@ -73,12 +73,13 @@ const VaultsSearch = () => {
           onFocus={handleInputFocus}
           endIcon={inputEndIcon}
           error={error}
-          success={data?.vaults?.items}
+          success={!!data?.length}
         />
         <DataCard open={open} targetRef={inputRef} className="w-[310px]">
           <div className="flex flex-col">
-            {data?.vaults?.items.map((vault: any) => (
+            {data?.map((vault, index) => (
               <VaultListItem
+                key={index}
                 name={vault?.name || vault?.address}
                 image={vault?.metadata?.image}
               />

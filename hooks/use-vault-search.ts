@@ -1,13 +1,16 @@
-import { useState, useEffect, useCallback } from "react";
 import { ApolloError, useQuery } from "@apollo/client";
-import { VAULTS } from "@/queries/vaults";
+import { useEffect, useState } from "react";
 import { isAddress } from "viem";
+import { VaultSearchByFullAddressQuery } from "@/types/vault";
+import { VAULTS } from "@/queries/vaults";
 
 type UseVaultSearchResult = {
   inputValue: string;
   setInputValue: (value: string) => void;
   loading: boolean;
-  data: any;
+  data:
+    | NonNullable<NonNullable<VaultSearchByFullAddressQuery["vaults"]>["items"]>
+    | undefined;
   error: string | boolean | undefined | ApolloError;
 };
 
@@ -18,7 +21,6 @@ enum ErrorMessages {
 
 const useDebounce = <T>(value: T, delay: number): T => {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedValue(value);
@@ -74,7 +76,7 @@ const useVaultSearch = (debounceMs = 300, first = 10): UseVaultSearchResult => {
       setError(queryError.message);
       setLocalLoading(false);
     } else if (
-      data?.vaults?.items.length === 0 &&
+      data?.vaults?.items?.length === 0 &&
       !queryLoading &&
       debouncedValue
     ) {
@@ -88,7 +90,7 @@ const useVaultSearch = (debounceMs = 300, first = 10): UseVaultSearchResult => {
     debouncedValue,
     hasAddressError,
     queryError,
-    data?.vaults?.items.length,
+    data?.vaults?.items?.length,
     queryLoading,
     data,
   ]);
@@ -97,7 +99,7 @@ const useVaultSearch = (debounceMs = 300, first = 10): UseVaultSearchResult => {
     inputValue,
     setInputValue,
     loading: localLoading || queryLoading,
-    data,
+    data: data?.vaults?.items,
     error,
   };
 };
