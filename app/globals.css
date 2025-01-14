@@ -27,13 +27,14 @@ body {
 
     --text-primary: 0 0% 0%;
     --text-secondary: 67, 76, 83;
-    --text-body: 25, 29, 32;
+    --text-body: 67, 76, 83;
 
     --icon-primary: 67, 76, 83;
     --icon-button-primary: 255, 255, 255;
     --icon-secondary: 25, 29, 32;
 
     --text-button-primary: 0 0% 100%;
+    --text-button-secondary: 25, 29, 32;
     --text-button-disabled: 255, 255, 255;
 
     --background-primary: 25, 29, 32;
@@ -45,6 +46,7 @@ body {
     --constant-dark: 228 33% 94%;
     --constant-gray: 216 100% 99%;
     --constant-color-valid: 173 49% 44%;
+    --constant-color-warning: 1255, 177, 61;
 
     --background-button: 41, 115, 255;
     --background-button-hover: 36, 112, 255;
