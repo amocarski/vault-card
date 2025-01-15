@@ -1,1 +1,4 @@
-export type { VaultSearchByFullAddressQuery } from "./generated/graphql";
+export type {
+  VaultSearchByFullAddressQuery,
+  VaultDataQuery,
+} from "./generated/graphql";

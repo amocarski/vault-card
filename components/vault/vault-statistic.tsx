@@ -3,7 +3,7 @@ import ArrowUpRightIcon from "../icons/arrow-up-right-icon";
 
 type VaultStatisticProps = {
   name: string;
-  value: string;
+  value: number | null | undefined | string;
   link?: string;
 };
 
@@ -13,6 +13,7 @@ const VaultStatistic = ({ name, value, link }: VaultStatisticProps) => {
       <p className="text-lg text-text-primary">{name}</p>
       {link ? (
         <Link
+          target="_blank"
           href={link}
           className="flex items-center gap-[2px] text-[15px] text-text-body transition-colors hover:text-text-primary"
         >

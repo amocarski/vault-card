@@ -8,7 +8,7 @@ import {
   SSRMultipartLink,
 } from "@apollo/experimental-nextjs-app-support";
 
-function makeClient() {
+const makeClient = () => {
   const httpLink = new HttpLink({
     uri: process.env.NEXT_PUBLIC_MORPHO_GRAPHQL_URL,
     fetchOptions: { cache: "no-store" },
@@ -26,7 +26,7 @@ function makeClient() {
           ])
         : httpLink,
   });
-}
+};
 
 const ApolloProvider = ({ children }: { children: React.ReactNode }) => {
   return (
