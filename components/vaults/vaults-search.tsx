@@ -7,6 +7,7 @@ import { DataCard } from "@/components/ui/data-card";
 import { Input } from "@/components/ui/input";
 import VaultListItem from "@/components/vaults/vault-list-item";
 import { useVaultSearch } from "@/hooks/use-vault-search";
+import Link from "next/link";
 import React from "react";
 
 const VaultsSearch = () => {
@@ -46,11 +47,13 @@ const VaultsSearch = () => {
         <DataCard open={!!data} targetRef={inputRef} className="w-[310px]">
           <div className="flex flex-col">
             {data?.map((vault, index) => (
-              <VaultListItem
-                key={index}
-                name={vault?.name || vault?.address}
-                image={vault?.metadata?.image}
-              />
+              <Link href={`/${vault?.chain?.id}/${vault?.address}`} key={index}>
+                <VaultListItem
+                  key={index}
+                  name={vault?.name || vault?.address}
+                  image={vault?.metadata?.image}
+                />
+              </Link>
             ))}
             {error && <VaultListItem empty />}
           </div>
